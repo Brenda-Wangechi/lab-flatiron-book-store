@@ -45,3 +45,34 @@ const bookStore = {
 
 // Write your code here!
 
+// Remove the placeholder li
+const placeholder = document.getElementById('delete-this');
+if (placeholder) {
+    placeholder.remove();
+}
+
+// Get the book list ul
+const bookList = document.getElementById('book-list');
+
+// Add each book to the list
+bookStore.books.forEach(book => {
+    const li = document.createElement('li');
+    li.className = 'list-li';
+    
+    const h3 = document.createElement('h3');
+    h3.textContent = book.title;
+    
+    const p = document.createElement('p');
+    p.textContent = book.author;
+    
+    const img = document.createElement('img');
+    img.src = book.imageUrl;
+    img.alt = book.title; // Add alt text for accessibility
+    
+    li.appendChild(h3);
+    li.appendChild(p);
+    li.appendChild(img);
+    
+    bookList.appendChild(li);
+});
+
